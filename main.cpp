@@ -32,10 +32,10 @@ int main()
         n = dist(gen);
         st = st + vector_of_DNA[n];
     }
-    
+    cout << "String for searching was successfully generated!\n" << st << endl;
 
     string substring;
-   
+    cout << "Please insert the substring you want to find: ";
     std::cin >> substring;
     std::vector<size_t> Iterators;
     parallel_search(st, substring, Iterators);
