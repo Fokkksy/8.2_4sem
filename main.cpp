@@ -20,6 +20,34 @@ void parallel_search(std::string main_string, std::string substring, std::vector
 
 int main()
 {
+    vector <char> vector_of_DNA = { 'A', 'G', 'T', 'C' };
+
+    string st = "";
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dist(0, 3);
+    int n;
+    for (int i = 0; i < 1000; i++) {
+        n = dist(gen);
+        st = st + vector_of_DNA[n];
+    }
+    
+
+    string substring;
+   
+    std::cin >> substring;
+    std::vector<size_t> Iterators;
+    parallel_search(st, substring, Iterators);
+
+    for (size_t i = 0; i < Iterators.size(); i++) {
+        std::cout << "The beginning of substring(s): " << Iterators[i] << std::endl;
+    }
+
+    if (Iterators.size() == 0) {
+        std::cout << "Your substring was not found :(" << std::endl;
+    }
+
 	return 0;
 }
 
